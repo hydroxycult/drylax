@@ -12,8 +12,6 @@ Drylax allows you to:
 
 **Important:** "Self-hosted" means you run the server yourself. When run on `localhost`, it's only accessible from your computer. To share pastes with others, you must deploy Drylax on a server with a public IP or domain.
 
-See the [Deployment Guide](docs/deployment.md) for instructions on making Drylax publicly accessible.
-
 ## Quick Start for Beginners
 
 ### What You'll Need
@@ -53,7 +51,7 @@ cd drylax
 Copy the example configuration file:
 
 ```bash
-cp .env.example .env
+cp .env.test .env
 ```
 
 Edit the `.env` file with a text editor. You must change these values:
