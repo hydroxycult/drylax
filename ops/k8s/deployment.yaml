@@ -1,0 +1,117 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drylax
+  labels:
+    app: drylax
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: drylax
+  template:
+    metadata:
+      labels:
+        app: drylax
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+      containers:
+      - name: drylax
+        image: drylax:latest
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        env:
+        - name: PORT
+          value: "8080"
+        - name: ENVIRONMENT
+          value: "production"
+        - name: LOG_LEVEL
+          value: "info"
+        - name: DATABASE_PATH
+          value: "/data/drylax.db"
+        - name: REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              name: drylax-secrets
+              key: redis-url
+        - name: PEPPER
+          valueFrom:
+            secretKeyRef:
+              name: drylax-secrets
+              key: pepper
+        - name: METRICS_USER
+          valueFrom:
+            secretKeyRef:
+              name: drylax-secrets
+              key: metrics-user
+        - name: METRICS_PASS
+          valueFrom:
+            secretKeyRef:
+              name: drylax-secrets
+              key: metrics-pass
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          runAsUser: 10001
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        livenessProbe:
+          exec:
+            command:
+            - /app/drylax
+            - -health
+          initialDelaySeconds: 10
+          periodSeconds: 30
+          timeoutSeconds: 3
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command:
+            - /app/drylax
+            - -health
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+        volumeMounts:
+        - name: data
+          mountPath: /data
+        - name: tmp
+          mountPath: /tmp
+      volumes:
+      - name: data
+        emptyDir: {}
+      - name: tmp
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: drylax
+  labels:
+    app: drylax
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: drylax

@@ -1,0 +1,14 @@
+=== RUN   TestLoadRampUp
+    load_test.go:99: Skipping load test in short mode
+--- SKIP: TestLoadRampUp (0.00s)
+=== RUN   TestLoadSustained
+    load_test.go:179: Skipping sustained load test in short mode
+--- SKIP: TestLoadSustained (0.00s)
+=== RUN   TestLoadSpikes
+    load_test.go:244: Skipping spike test in short mode
+--- SKIP: TestLoadSpikes (0.00s)
+=== RUN   TestLoadBinaryContent
+    load_test.go:300: Skipping binary content test in short mode
+--- SKIP: TestLoadBinaryContent (0.00s)
+PASS
+ok  	drylax/test	0.010s

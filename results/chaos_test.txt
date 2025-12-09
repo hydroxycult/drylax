@@ -1,0 +1,16 @@
+=== RUN   TestChaosDatabaseFailure
+    chaos_test.go:64: Database failure handled gracefully without panics
+--- PASS: TestChaosDatabaseFailure (0.54s)
+=== RUN   TestChaosDatabaseCorruption
+    chaos_test.go:107: Corrupted database rejected as expected: failed to ping db: file is not a database
+--- PASS: TestChaosDatabaseCorruption (0.35s)
+=== RUN   TestChaosCacheFailure
+    chaos_test.go:150: Cache eviction and fallback to DB working correctly
+--- PASS: TestChaosCacheFailure (6.58s)
+=== RUN   TestChaosKMSFailure
+    chaos_test.go:166: KMS correctly rejects initialization with no providers (fail-closed behavior verified)
+--- PASS: TestChaosKMSFailure (0.00s)
+=== RUN   TestChaosCascadingFailures
+signal: killed
+FAIL	drylax/test	14.570s
+FAIL

@@ -1,0 +1,54 @@
+=== RUN   TestRealIPSpoofingAttack
+=== RUN   TestRealIPSpoofingAttack/Untrusted_source_spoofs_single_IP
+    security_verification_test.go:69: Correctly extracted IP: 192.168.1.100
+=== RUN   TestRealIPSpoofingAttack/Untrusted_source_spoofs_multiple_IPs
+    security_verification_test.go:69: Correctly extracted IP: 192.168.1.100
+=== RUN   TestRealIPSpoofingAttack/Trusted_proxy_forwards_client_IP
+    security_verification_test.go:69: Correctly extracted IP: 4.4.4.4
+=== RUN   TestRealIPSpoofingAttack/Mixed_chain_with_untrusted_IPs
+    security_verification_test.go:69: Correctly extracted IP: 6.6.6.6
+=== RUN   TestRealIPSpoofingAttack/Empty_XFF_from_trusted_proxy
+    security_verification_test.go:69: Correctly extracted IP: 10.0.0.1
+--- PASS: TestRealIPSpoofingAttack (0.00s)
+    --- PASS: TestRealIPSpoofingAttack/Untrusted_source_spoofs_single_IP (0.00s)
+    --- PASS: TestRealIPSpoofingAttack/Untrusted_source_spoofs_multiple_IPs (0.00s)
+    --- PASS: TestRealIPSpoofingAttack/Trusted_proxy_forwards_client_IP (0.00s)
+    --- PASS: TestRealIPSpoofingAttack/Mixed_chain_with_untrusted_IPs (0.00s)
+    --- PASS: TestRealIPSpoofingAttack/Empty_XFF_from_trusted_proxy (0.00s)
+=== RUN   TestKMSFailureHandling
+=== RUN   TestKMSFailureHandling/No_providers_configured
+    security_verification_test.go:128: Should fail when no KMS providers available: no KMS providers available (checked Vault, AWS KMS, env)
+=== RUN   TestKMSFailureHandling/Fail-closed_explicitly_disabled_(opt-out)
+    security_verification_test.go:155: Should allow when fail-closed is explicitly disabled: Encryption/decryption successful
+=== RUN   TestKMSFailureHandling/Fail-closed_default_(not_set)
+    security_verification_test.go:155: Should succeed when provider available (defaults to fail-closed=true): Encryption/decryption successful
+--- PASS: TestKMSFailureHandling (0.00s)
+    --- PASS: TestKMSFailureHandling/No_providers_configured (0.00s)
+    --- PASS: TestKMSFailureHandling/Fail-closed_explicitly_disabled_(opt-out) (0.00s)
+    --- PASS: TestKMSFailureHandling/Fail-closed_default_(not_set) (0.00s)
+=== RUN   TestKMSNetworkTimeout
+=== RUN   TestKMSNetworkTimeout/Context_cancellation_during_KMS_call
+    security_verification_test.go:181: Context cancellation respected: context canceled
+=== RUN   TestKMSNetworkTimeout/Corrupted_ciphertext_rejected
+    security_verification_test.go:212: Corrupted ciphertext rejected: cipher: message authentication failed
+--- PASS: TestKMSNetworkTimeout (0.00s)
+    --- PASS: TestKMSNetworkTimeout/Context_cancellation_during_KMS_call (0.00s)
+    --- PASS: TestKMSNetworkTimeout/Corrupted_ciphertext_rejected (0.00s)
+=== RUN   TestXFFHeaderDoS
+=== RUN   TestXFFHeaderDoS/Normal_header_(5_IPs)
+    security_verification_test.go:256: Processed 5 IPs in 3.322µs
+=== RUN   TestXFFHeaderDoS/Large_header_(50_IPs)
+    security_verification_test.go:256: Processed 50 IPs in 1.62µs
+=== RUN   TestXFFHeaderDoS/Excessive_header_(150_IPs)
+    security_verification_test.go:248: Note: Large XFF header processed (IP: 10.0.0.149)
+    security_verification_test.go:256: Processed 150 IPs in 1.638µs
+=== RUN   TestXFFHeaderDoS/DoS_attack_(1000_IPs)
+    security_verification_test.go:248: Note: Large XFF header processed (IP: 10.0.3.231)
+    security_verification_test.go:256: Processed 1000 IPs in 2.384µs
+--- PASS: TestXFFHeaderDoS (0.00s)
+    --- PASS: TestXFFHeaderDoS/Normal_header_(5_IPs) (0.00s)
+    --- PASS: TestXFFHeaderDoS/Large_header_(50_IPs) (0.00s)
+    --- PASS: TestXFFHeaderDoS/Excessive_header_(150_IPs) (0.00s)
+    --- PASS: TestXFFHeaderDoS/DoS_attack_(1000_IPs) (0.00s)
+PASS
+ok  	drylax/test	0.039s

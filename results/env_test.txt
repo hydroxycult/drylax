@@ -1,0 +1,14 @@
+=== RUN   TestEnvLoading
+    env_test.go:27: HASHER_WORKER_COUNT = "128"
+    env_test.go:27: WORKER_POOL_SIZE = "1000"
+    env_test.go:27: MAX_WORKER_LOAD = "5000"
+    env_test.go:27: PEPPER = "0123456789ABCDEF0123456789ABCDEF"
+    env_test.go:27: KMS_LOCAL_KEY = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    env_test.go:32: Config loaded successfully:
+    env_test.go:33:   HasherWorkerCount: 128
+    env_test.go:34:   WorkerPoolSize: 1000
+    env_test.go:35:   MaxWorkerLoad: 5000
+    env_test.go:36:   Pepper length: 32 bytes
+--- PASS: TestEnvLoading (0.00s)
+PASS
+ok  	drylax/test	0.011s

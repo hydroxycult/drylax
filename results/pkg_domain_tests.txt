@@ -1,0 +1,6 @@
+=== RUN   TestEncryptedPasteV2_Marshal
+--- PASS: TestEncryptedPasteV2_Marshal (0.00s)
+=== RUN   TestEncryptedPasteV2_Version
+--- PASS: TestEncryptedPasteV2_Version (0.00s)
+PASS
+ok  	drylax/pkg/domain	(cached)

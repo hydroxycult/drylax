@@ -1,0 +1,54 @@
+=== RUN   TestSecuritySQLInjection
+=== RUN   TestSecuritySQLInjection/__DROP_TABLE_pastes____
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+=== RUN   TestSecuritySQLInjection/_OR_1=1
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+=== RUN   TestSecuritySQLInjection/1_UNION_SELECT_*_FROM_pastes__
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+=== RUN   TestSecuritySQLInjection/__DELETE_FROM_pastes_WHERE_id=
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+=== RUN   TestSecuritySQLInjection/admin__
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+=== RUN   TestSecuritySQLInjection/_OR_1=1__
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+=== RUN   TestSecuritySQLInjection/scriptalertxss_script_AND_1=1
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+=== RUN   TestSecuritySQLInjection/1_AND_SLEEP5__
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+=== RUN   TestSecuritySQLInjection/_WAITFOR_DELAY_00:00:05__
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+=== RUN   TestSecuritySQLInjection/__EXEC_sp_MSForEachTable_DROP_TABLE_?____
+CORS DEBUG: Method=POST Origin="" AllowedOrigins=[]
+CORS DEBUG: Final isAllowed=false
+CORS DEBUG: BLOCKED! No CORS headers set
+--- PASS: TestSecuritySQLInjection (4.01s)
+    --- PASS: TestSecuritySQLInjection/__DROP_TABLE_pastes____ (0.38s)
+    --- PASS: TestSecuritySQLInjection/_OR_1=1 (0.44s)
+    --- PASS: TestSecuritySQLInjection/1_UNION_SELECT_*_FROM_pastes__ (0.47s)
+    --- PASS: TestSecuritySQLInjection/__DELETE_FROM_pastes_WHERE_id= (0.39s)
+    --- PASS: TestSecuritySQLInjection/admin__ (0.38s)
+    --- PASS: TestSecuritySQLInjection/_OR_1=1__ (0.46s)
+    --- PASS: TestSecuritySQLInjection/scriptalertxss_script_AND_1=1 (0.45s)
+    --- PASS: TestSecuritySQLInjection/1_AND_SLEEP5__ (0.37s)
+    --- PASS: TestSecuritySQLInjection/_WAITFOR_DELAY_00:00:05__ (0.34s)
+    --- PASS: TestSecuritySQLInjection/__EXEC_sp_MSForEachTable_DROP_TABLE_?____ (0.33s)
+PASS
+ok  	drylax/test	4.047s

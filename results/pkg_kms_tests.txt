@@ -1,0 +1,34 @@
+=== RUN   TestKEKCache_HitMiss
+--- PASS: TestKEKCache_HitMiss (0.00s)
+=== RUN   TestKEKCache_Expiration
+--- PASS: TestKEKCache_Expiration (0.20s)
+=== RUN   TestKEKCache_ConcurrentAccess
+--- PASS: TestKEKCache_ConcurrentAccess (0.05s)
+=== RUN   TestKEKCache_DifferentDEKs
+--- PASS: TestKEKCache_DifferentDEKs (0.00s)
+=== RUN   TestKEKCache_Stop
+--- PASS: TestKEKCache_Stop (0.00s)
+=== RUN   TestLegacyCompatibility
+=== RUN   TestLegacyCompatibility/EnvProvider_Binary_Compatibility
+    legacy_compat_test.go:65: EnvProvider is 100% backward compatible
+--- PASS: TestLegacyCompatibility (0.00s)
+    --- PASS: TestLegacyCompatibility/EnvProvider_Binary_Compatibility (0.00s)
+=== RUN   TestEncryptionContextAAD
+=== RUN   TestEncryptionContextAAD/Matching_context_succeeds
+    context_test.go:35: Encryption/decryption with matching context succeeded
+=== RUN   TestEncryptionContextAAD/Different_context_fails_(confused_deputy)
+    context_test.go:60: Confused deputy attack prevented: cipher: message authentication failed
+=== RUN   TestEncryptionContextAAD/Missing_context_fails
+    context_test.go:80: Decryption without context failed: cipher: message authentication failed
+=== RUN   TestEncryptionContextAAD/Legacy_methods_without_context
+    context_test.go:99: Legacy API (without context) still works
+=== RUN   TestEncryptionContextAAD/Context_key_ordering_is_deterministic
+    context_test.go:124: Context serialization is deterministic (key order doesn't matter)
+--- PASS: TestEncryptionContextAAD (0.00s)
+    --- PASS: TestEncryptionContextAAD/Matching_context_succeeds (0.00s)
+    --- PASS: TestEncryptionContextAAD/Different_context_fails_(confused_deputy) (0.00s)
+    --- PASS: TestEncryptionContextAAD/Missing_context_fails (0.00s)
+    --- PASS: TestEncryptionContextAAD/Legacy_methods_without_context (0.00s)
+    --- PASS: TestEncryptionContextAAD/Context_key_ordering_is_deterministic (0.00s)
+PASS
+ok  	drylax/pkg/kms	0.262s
