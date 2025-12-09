@@ -1,6 +1,7 @@
 # Drylax - Secure Ephemeral Paste Service
 
 Drylax is a secure, self-hosted pastebin for sharing temporary text with strong encryption and automatic expiration.
+> **ONLY AN IMPLEMENTATION/PROTOTYPE.**
 
 ## What Does This Do?
 
