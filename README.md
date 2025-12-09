@@ -118,19 +118,9 @@ All settings are in the `.env` file. Key settings include:
 - `MAX_PASTE_SIZE`: Maximum size of pastes in bytes
 - `ARGON2_TIME`: Password hashing iterations (higher = more secure but slower)
 
-See `docs/configuration.md` for complete details.
+See [this](docs/configuration.md) for complete details.
 
-## Security Features
-
-- **End-to-End Encryption**: All paste content is encrypted at rest
-- **Secure Token Generation**: Deletion tokens use cryptographically secure random generation
-- **Rate Limiting**: Protection against abuse and DoS attacks
-- **SQL Injection Protection**: Parameterized queries throughout
-- **IP Hashing**: Client IPs hashed before storage for privacy
-
-## Testing
-
-### Running Tests
+## Running Tests
 
 To run all tests:
 
@@ -198,7 +188,3 @@ Complete API reference is available [here](docs/api.md).
 ## License
 
 See LICENSE file for details.
-
-## Support
-
-For issues or questions, please open an issue on GitHub.
